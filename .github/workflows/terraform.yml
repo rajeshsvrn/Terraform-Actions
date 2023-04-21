@@ -16,6 +16,7 @@ jobs:
           workload_identity_provider: projects/596010007198/locations/global/workloadIdentityPools/github-pool/providers/github-provider
           service_account: terraform-actions@terraform-actions.iam.gserviceaccount.com
 
+
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v0"
 
@@ -30,11 +31,6 @@ jobs:
       - name: Terraform apply
         run: terraform apply -auto-approve 
         working-directory: ../Terraform-Actions
-
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve 
-        working-directory: ../Terraform-Actions
-
          
         
 
