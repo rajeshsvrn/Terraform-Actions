@@ -1,12 +1,17 @@
 name: GitHub Actions with Workload Identity Federation Demo
-on: [push]
+on:
+  push:
+    branches:
+      - dev
 jobs:
+  terraform:
     runs-on: ubuntu-latest
     steps:
-      - uses: "actions/checkout@v3"
+      - name: "Checkout code"
+        uses: "actions/checkout@v2"
 
-      - id: "auth"
-        name: "Authenticate to Google Cloud"
+      - name: "Authenticate to Google Cloud"
+        id: "auth"
         uses: "google-github-actions/auth@v0"
         with:
           workload_identity_provider: projects/596010007198/locations/global/workloadIdentityPools/github-pool/providers/github-provider
@@ -14,9 +19,6 @@ jobs:
 
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v0"
-
-      - name: "List buckets"
-        run: "gcloud storage ls"
 
       - name: Terraform init    
         run: terraform init
