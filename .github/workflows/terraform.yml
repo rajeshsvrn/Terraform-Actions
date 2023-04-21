@@ -1,10 +1,6 @@
 name: GitHub Actions Workload Identity Demo
 on: [push]
 jobs:
-  List-Buckets:
-    permissions:
-      contents: "read"
-      id-token: "write"
     runs-on: ubuntu-latest
     steps:
       - uses: "actions/checkout@v3"
@@ -19,19 +15,17 @@ jobs:
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v0"
 
-      - name: "List buckets"
-        run: "gcloud storage ls"
 
       - name: Terraform init    
         run: terraform init
 
       - name: Terraform plan
         run: terraform plan
-        working-directory: ../Terraform-GCP-Actions
+        working-directory: ../Terraform-Actions
 
       - name: Terraform apply
         run: terraform apply -auto-approve 
-        working-directory: ../Terraform-GCP-Actions
+        working-directory: ../Terraform-Actions
 
          
         
