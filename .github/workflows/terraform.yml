@@ -1,5 +1,8 @@
 name: GitHub Actions Workload Identity Demo
 on: [push]
+permissions:
+    contents: "read"
+    id-token: "write"
 jobs:
   terraform:
     runs-on: ubuntu-latest
