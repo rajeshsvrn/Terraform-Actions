@@ -13,7 +13,7 @@ variable "project_id"{
 variable "region" {
 	type = string
 }
-variable "google_credentials" {
-  type = string
-  sensitive = true
-}
+#variable "google_credentials" {
+  #type = string
+  #sensitive = true
+#}
