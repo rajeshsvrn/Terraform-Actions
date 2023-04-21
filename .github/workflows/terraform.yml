@@ -1,6 +1,7 @@
 name: GitHub Actions Workload Identity Demo
 on: [push]
 jobs:
+  terraform:
     runs-on: ubuntu-latest
     steps:
       - uses: "actions/checkout@v3"
