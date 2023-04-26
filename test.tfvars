@@ -1,4 +1,4 @@
-bucket_name = "terraform-action-test-bucket-6"
+bucket_name = "terraform-action-test-bucket-16"
 location = "us-central1"
 project_id = "terraform-actions-test"
 region = "us-central1"
