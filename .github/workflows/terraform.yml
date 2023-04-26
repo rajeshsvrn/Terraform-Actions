@@ -1,5 +1,21 @@
-name: GitHub Actions Workload Identity Demo
-on: [push]
+name: Deploy Infrastructure
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'dev'
+        options:
+          - 'dev'
+          - 'test'
+          - 'prod'
+
+env:
+  TF_WORKSPACE: ${{ github.event.inputs.environment }}
+
+  
 permissions:
     contents: "read"
     id-token: "write"
