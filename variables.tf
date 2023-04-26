@@ -1,19 +1,19 @@
 variable "bucket_name" {
-	type = string
+  type = string
 }
 
 variable "location" {
-	type = string
+  type = string
 }
 
-variable "project_id"{
-	type = string
+variable "project_id" {
+  type = string
 }
 
 variable "region" {
-	type = string
+  type = string
 }
 #variable "google_credentials" {
-  #type = string
-  #sensitive = true
+#type = string
+#sensitive = true
 #}
