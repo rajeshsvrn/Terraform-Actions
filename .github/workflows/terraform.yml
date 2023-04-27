@@ -24,6 +24,10 @@ jobs:
       contents: "read"
       id-token: "write"
 
+    defaults:
+      run:
+        shell: bash
+
 
     steps:
       - uses: "actions/checkout@v3"
