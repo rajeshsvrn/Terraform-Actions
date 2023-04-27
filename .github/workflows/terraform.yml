@@ -5,6 +5,7 @@ on:
     inputs:
       environment:
         description: 'Environment to deploy to'
+        type: choice
         required: true
         #default: 'dev'
         options:
@@ -12,8 +13,6 @@ on:
           - 'test'
           - 'prod'
 
-env:
-  TF_WORKSPACE: ${{ github.event.inputs.environment }}
 
   
 permissions:
@@ -22,6 +21,12 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    permissions:
+    contents: "read"
+    id-token: "write"
+
+    
     steps:
       - uses: "actions/checkout@v3"
 
