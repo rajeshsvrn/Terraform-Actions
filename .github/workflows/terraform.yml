@@ -48,11 +48,11 @@ jobs:
         run: terraform init
 
       - name: Terraform plan
-        run: terraform plan -var-file=${{ secrets.TF_VAR_FILE }} -input=false -chdir=../Terraform-Action
+        run: terraform plan -var-file=${{ secrets.TF_VAR_FILE }} -input=false
         working-directory: ../Terraform-Actions
 
-      - name: Terraform apply -var-file=${{ secrets.TF_VAR_FILE }} -input=false -chdir=../Terraform-Action
-        run: terraform apply -auto-approve 
+      - name: Terraform apply
+        run: terraform apply -var-file=${{ secrets.TF_VAR_FILE }} -auto-approve -input=false
         working-directory: ../Terraform-Actions
          
         
