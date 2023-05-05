@@ -16,4 +16,5 @@ variable "region" {
 #variable "google_credentials" {
 #type = string
 #sensitive = true
-#}
+#}few
+#gnlsgnr
